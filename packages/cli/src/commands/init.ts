@@ -39,7 +39,9 @@ export default async function init() {
   })
 
   saveConfig(config)
-  writeTsconfig(config.aliases.path)
+
+  if (isTypescript) writeTsconfig(config.aliases.path)
+
   writeUtils()
   await writeTailwindConfig(config.tailwind.config)
   await writeCSS(config.tailwind.css)
